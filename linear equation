@@ -1,0 +1,28 @@
+
+
+import pandas as pd
+import matplotlib.pyplot as plt
+
+"#2y=3x-4"
+
+"# Create a dataframe with an x column containing values from -2 to 8\n",
+df = pd.DataFrame({'x':range(-2,8)})
+df['y']=3*df['x']-4
+print (df)
+plt.scatter(df['x'],df['y'])
+plt.plot(df['x'],df['y'])
+#plt.show()
+x=y=0
+YI=(3*x-4)/2
+XI=(2*y+4)/3
+plt.axvline(x=0)
+plt.axhline(y=0)
+plt.annotate('x-intercept',(XI, 0))
+plt.annotate('y-intercept',(0,YI))
+def getSlope(x1, y1, x2, y2):
+    slope = (y2-y1)/(x2-x1)
+    return slope
+print ("\n")
+slope=getSlope(9,23,5,11)
+print ("slope(m)=",slope)
+
