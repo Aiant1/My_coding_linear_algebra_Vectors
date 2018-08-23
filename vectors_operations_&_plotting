@@ -1,0 +1,80 @@
+
+import numpy as np
+import matplotlib.pyplot as plt
+import math
+
+"# We'll use a numpy array for our vector\n"
+v = np.array([2,1])
+"# Magnitude of the vector"
+vmag=np.linalg.norm(v)
+print ("magnitude =",vmag)
+"# Calculate the direction"
+vTan = v[1] / v[0]
+print ('tan(radian) = ' + str(vTan))
+"# Tan inverse"
+vAtan = math.atan(vTan)
+"# atan returns the angle in radians, so convert to degrees\n"
+print('degree = ' + str(math.degrees(vAtan)))
+
+"# and we'll use a quiver plot to visualize it.\n"
+print ("vector v")
+origin = [0], [0]
+plt.axis('equal')
+plt.grid()
+plt.ticklabel_format(style='sci', axis='both', scilimits=(0,0))
+plt.quiver(*origin, *v, scale=10, color='r')
+plt.show()
+
+"# Plot two vectors"
+
+s = np.array([-3,2])
+z = v + s
+
+"# Plot v and s"
+
+print ("vector v and s")
+
+vecs = np.array([v,s])
+origin = [0], [0]
+plt.axis('equal')
+plt.grid()
+plt.ticklabel_format(style='sci', axis='both', scilimits=(0,0))
+plt.quiver(*origin,vecs[:,0],vecs[:,1], color=['r', 'b'], scale=10)
+plt.show()
+
+"# plot the two vectors along with their addion vector z"
+print ("vector v(red),s(blue),z(black)")
+
+vecs1 = np.array([v,s,z])
+origin = [0], [0]
+plt.axis('equal')
+plt.grid()
+plt.ticklabel_format(style='sci', axis='both', scilimits=(0,0))
+plt.quiver(*origin,vecs1[:,0],vecs1[:,1],color=['r','b','k'], scale=10)
+plt.show()
+print ('v=',v)
+print ('s=',s)
+print ('z=',z)
+print ("\n")
+
+"# VECTOR MULTIPLICATION"
+print ("\n")
+"# 1. Scaler multiplication"
+Sm= 3*v
+print ("3*v =",Sm)
+print ("\n")
+
+"# 2. Dot product multiplication"
+Dm=np.dot(v,s)
+print ("s.v=",Dm)
+"# 3. Cross multiplication"
+print ("\n")
+
+Cm=np.cross(v,s)
+print ("vxs=",Cm)
+
+
+
+
+
+
